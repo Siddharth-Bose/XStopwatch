@@ -23,6 +23,8 @@ function App() {
   };
 
   const resetTimer = () => {
+    clearInterval(intervalId);
+    setIntervalId(null);
     setTimer({ minutes: 0, seconds: 0 });
   };
   const stopTimer = () => {
