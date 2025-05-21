@@ -36,8 +36,7 @@ function App() {
     <div>
       <h1>Stopwatch</h1>
       <p>
-        Time: {String(timer.minutes).padStart(2, "0")}:
-        {String(timer.seconds).padStart(2, "0")}
+        Time: {String(timer.minutes)}:{String(timer.seconds).padStart(2, "0")}
       </p>
       {intervalId ? (
         <button onClick={stopTimer}>Stop</button>
