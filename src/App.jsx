@@ -23,9 +23,11 @@ function App() {
   };
 
   const resetTimer = () => {
+    setTimer({ minutes: 0, seconds: 0 });
+  };
+  const stopTimer = () => {
     clearInterval(intervalId);
     setIntervalId(null);
-    setTimer({ minutes: 0, seconds: 0 });
   };
 
   return (
@@ -35,7 +37,11 @@ function App() {
         Time: {String(timer.minutes).padStart(2, "0")}:
         {String(timer.seconds).padStart(2, "0")}
       </p>
-      <button onClick={startTimer}>Start</button>
+      {intervalId ? (
+        <button onClick={stopTimer}>Stop</button>
+      ) : (
+        <button onClick={startTimer}>Start</button>
+      )}
       <button onClick={resetTimer}>Reset</button>
     </div>
   );
